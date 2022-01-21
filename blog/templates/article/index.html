@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Blog App</title>
+    </head>
+
+    <body>
+        <h1>Blogs</h1>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th colspan="3"></th>
+            </tr>
+            {% for article in articles %}
+            <tr>
+                <td>{{article.title}}</td>
+                <td>{{article.content}}</td>
+                <td><a href="{% url 'detail' article.id %}">Detail</a></td>
+                <td><a href="{% url 'edit' article.id %}">Edit</a></td>
+                <td><a href="{% url 'delete' article.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+
+        <a href="{% url 'create' %}">New Blog</a>
+
+    </body>
+
+</html>
