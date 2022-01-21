@@ -9,7 +9,7 @@ def index(request):
     params = {
         'articles': articles,
     }
-    return render(request, 'article/index.html', params)
+    return render(request, 'blog/index.html', params)
 
 
 def create(request):
@@ -23,7 +23,7 @@ def create(request):
         article.save()
         return redirect(to='/blog')
     else:
-        return render(request, 'article/create.html', params)
+        return render(request, 'blog/create.html', params)
 
 
 def detail(request, article_id):
@@ -32,7 +32,7 @@ def detail(request, article_id):
         'id': article_id,
         'article': article,
     }
-    return render(request, 'article/detail.html', params)
+    return render(request, 'blog/detail.html', params)
 
 
 def edit(request, article_id):
@@ -51,7 +51,7 @@ def edit(request, article_id):
             'id': article_id,
             'form': form,
         }
-        return render(request, 'article/edit.html', params)
+        return render(request, 'blog/edit.html', params)
 
 
 def delete(request, article_id):
@@ -64,4 +64,4 @@ def delete(request, article_id):
             'id': article_id,
             'article': article,
         }
-        return render(request, 'article/delete.html', params)
+        return render(request, 'blog/delete.html', params)
