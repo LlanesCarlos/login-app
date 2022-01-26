@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-    <head>
-        <meta charset="utf-8">
-        <title>Blog App</title>
-    </head>
+  <head>
+    <meta charset="utf-8">
+    <title>Blog App</title>
+  </head>
 
-    <body>
-        <h1>Editing Blog</h1>
-        <form action="{% url 'edit' id %}" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Update">
-        </form>
+  <body>
+    <h1>Editing Blog</h1>
+    <form action="{% url 'edit' article.id %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Update">
+    </form>
 
-        <br>
+    <br>
 
-        <a href="{% url 'detail' id %}">Detail</a> |
-        <a href="{% url 'index' %}">Back</a>
-    </body>
+    <a href="{% url 'detail' article.id %}">Detail</a> |
+    <a href="{% url 'index' %}">Back</a>
+  </body>
 
 </html>
