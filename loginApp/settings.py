@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'loginApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'loginApp',
+        'NAME': 'login_app',
         'USER': 'sample_user',
         'PASSWORD': 'password',
         'HOST': 'localhost',
