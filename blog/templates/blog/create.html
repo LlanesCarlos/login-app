@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends "base.html" %}
 
-    <head>
-        <meta charset="utf-8">
-        <title>Blog App</title>
-    </head>
+{% block main %}
+<h1>New Blog</h1>
+<form action="{% url 'blog:create' %}" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Create Blog">
+</form>
 
-    <body>
-        <h1>New Blog</h1>
-        <form action="{% url 'create' %}" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Create Blog">
-        </form>
+<br>
 
-        <br>
-
-        <a href="{% url 'index' %}">Back</a>
-    </body>
-
-</html>
+<a href="{% url 'blog:index' %}">Back</a>
+{% endblock %}

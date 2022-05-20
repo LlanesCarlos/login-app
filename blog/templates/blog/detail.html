@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends "base.html" %}
 
-  <head>
-    <meta charset="utf-8">
-    <title>Blog App</title>
-  </head>
+{% block main %}
+<p>
+  <strong>Title:</strong>
+  {{article.title}}
+</p>
 
-  <body>
-    <p>
-      <strong>Title:</strong>
-      {{article.title}}
-    </p>
-
-    <p>
-      <strong>Content:</strong>
-      {{article.content}}
-    </p>
-    <a href="{% url 'index' %}">Back</a> |
-    <a href="{% url 'edit' article.id %}">Edit</a>
-  </body>
-
-</html>
+<p>
+  <strong>Content:</strong>
+  {{article.content}}
+</p>
+<a href="{% url 'blog:index' %}">Back</a> |
+<a href="{% url 'blog:edit' article.id %}">Edit</a>
+{% endblock %}

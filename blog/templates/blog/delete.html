@@ -1,29 +1,21 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends "base.html" %}
 
-  <head>
-    <meta charset="utf-8">
-    <title>Blog App</title>
-  </head>
+{% block main %}
+<p>
+  <strong>Title:</strong>
+  {{article.title}}
+</p>
 
-  <body>
-    <p>
-      <strong>Title:</strong>
-      {{article.title}}
-    </p>
+<p>
+  <strong>Content:</strong>
+  {{article.content}}
+</p>
+<form action="{% url 'blog:delete' article.id %}" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Delete">
+</form>
 
-    <p>
-      <strong>Content:</strong>
-      {{article.content}}
-    </p>
-    <form action="{% url 'delete' article.id %}" method="post">
-      {% csrf_token %}
-      <input type="submit" value="Delete">
-    </form>
+<br>
 
-    <br>
-
-    <a href="{% url 'index' %}">Back</a>
-  </body>
-
-</html>
+<a href="{% url 'blog:index' %}">Back</a>
+{% endblock %}
