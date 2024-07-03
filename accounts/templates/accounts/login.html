@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Iniciar sesión</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ next }}" />
+  {{ form.as_p }}
+  <input type="submit" value="Iniciar sesión">
+</form>
+{% endblock %}

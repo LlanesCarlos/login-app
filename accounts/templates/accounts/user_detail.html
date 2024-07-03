@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main %}
+<table>
+  <tbody>
+    <tr>
+      <th>username</th>
+      <td>{{ user.username }}</td>
+    </tr>
+    <tr>
+      <th>Email address</th>
+      <td>{{ user.email }}</td>
+    </tr>
+    <tr>
+      <th>age</th>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>
+<a href="{% url 'user_update' user.pk %}">Edit by</a>
+<a href="{% url 'password_change' %}">パスワードのChange</a> 
+{% endblock %}
