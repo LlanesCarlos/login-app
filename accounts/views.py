@@ -10,7 +10,7 @@ from django.views.generic import (
     DetailView,
     UpdateView,
     DeleteView,
-)    # Change
+) 
 from django.urls import reverse
 from django.contrib.auth.views import (
     PasswordChangeView, PasswordChangeDoneView
@@ -21,7 +21,7 @@ User = get_user_model()
 
 class UserCreateAndLoginView(CreateView):
     form_class = CustomUserCreationForm
-    template_name = "accounts/signup.html"
+    template_name = "signup.html"
     success_url = reverse_lazy("blog:index")
 
     def form_valid(self, form):
@@ -39,25 +39,25 @@ class OnlyYouMixin(UserPassesTestMixin):
 
 class UserDetail(OnlyYouMixin, DetailView):
     model = User
-    template_name = 'accounts/user_detail.html'
+    template_name = 'user_detail.html'
     
 class UserUpdate(OnlyYouMixin, UpdateView):
     model = User
     form_class = UserUpdateForm
-    template_name = 'accounts/user_edit.html'
+    template_name = 'user_edit.html'
 
     def get_success_url(self):
         return reverse('user_detail', kwargs={'pk': self.kwargs['pk']})
     
 class PasswordChange(PasswordChangeView):
-    template_name = 'accounts/password_change.html'
+    template_name = 'password_change.html'
 
 
 class PasswordChangeDone(PasswordChangeDoneView):
-    template_name = 'accounts/user_detail.html'
+    template_name = 'user_detail.html'
     
 class UserDelete(OnlyYouMixin, DeleteView):
     model = User
-    template_name = 'accounts/user_delete.html'
+    template_name = 'user_delete.html'
     success_url = reverse_lazy('login')
     

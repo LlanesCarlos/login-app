@@ -18,7 +18,7 @@
         <li><a href="{% url 'user_detail' user.pk %}">Member Information</a></li> 
         {% else %}
         <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
-        <li><a href="{% url 'signup' %}">Registrar usuario</a></li>    <!-- Apéndice -->
+        <li><a href="{% url 'signup' %}">Registrar usuario</a></li>
         {% endif %}
       </ul>
     </nav>
