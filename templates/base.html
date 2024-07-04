@@ -14,7 +14,12 @@
       <ul>
         {% if user.is_authenticated %}
         <li><a href="{% url 'blog:index' %}">Lista de blogs</a></li>
-        <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+        <li>
+          <form id="logout-form" action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Cerrar sesión</button>
+          </form>
+        </li>
         <li><a href="{% url 'user_detail' user.pk %}">Member Information</a></li> 
         {% else %}
         <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
